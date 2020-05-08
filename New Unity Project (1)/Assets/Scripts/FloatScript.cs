@@ -39,10 +39,11 @@ public class FloatScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float newWaterLine = 0f;
         bool pointUnderWater = false;
+        Debug.Log(pointUnderWater);
 
         for (int i = 0; i < floatPoints.Length; i++)
         {
@@ -51,6 +52,7 @@ public class FloatScript : MonoBehaviour
             newWaterLine += waterLinePoints[i].y / floatPoints.Length;
             if (waterLinePoints[i].y > floatPoints[i].position.y)
             {
+                Debug.Log("Ghallo");
                 pointUnderWater = true;
             }
             var waterLineDelta = newWaterLine - waterLine;
@@ -58,15 +60,21 @@ public class FloatScript : MonoBehaviour
 
             var gravity = Physics.gravity;
             rb.drag = airDrag;
-            if (attachToSurface)
-            {
-                rb.position = new Vector3(rb.position.x, waterLine - centerOffset.y,  rb.position.z);
-            }
 
-            else
+            if (waterLine > center.y)
             {
-                gravity = affectDirection ? targetUp * -Physics.gravity.y : -Physics.gravity;
-                transform.Translate(Vector3.up * waterLineDelta * 0.9f);
+                rb.drag = waterDrag;
+
+                if (attachToSurface)
+                {
+                    rb.position = new Vector3(rb.position.x, waterLine - centerOffset.y, rb.position.z);
+                }
+
+                else
+                {
+                    gravity = affectDirection ? targetUp * -Physics.gravity.y : -Physics.gravity;
+                    transform.Translate(Vector3.up * waterLineDelta * 0.9f);
+                }
             }
             rb.AddForce(gravity * Mathf.Clamp(Mathf.Abs(waterLine - center.y), 0, 1));
 
@@ -74,6 +82,7 @@ public class FloatScript : MonoBehaviour
 
             if (pointUnderWater)
             {
+                Debug.Log("test");
                 targetUp = Vector3.SmoothDamp(transform.up, targetUp, ref smoothVectorRotation, 0.2f);
                 rb.rotation = Quaternion.FromToRotation(transform.up, targetUp) * rb.rotation;
             }
