@@ -10,7 +10,7 @@ public class FloatScript : MonoBehaviour
     private float waterDrag = 10;
     [SerializeField]
     private Transform[] floatPoints;
-    private bool attachToSurface;
+    private bool attachToSurface = true;
     private bool affectDirection = true;
 
     protected Rigidbody rb;
@@ -77,6 +77,7 @@ public class FloatScript : MonoBehaviour
                 }
             }
             rb.AddForce(gravity * Mathf.Clamp(Mathf.Abs(waterLine - center.y), 0, 1));
+            targetUp = PhysicsHelper.GetNormal(waterLinePoints);
 
             if (pointUnderWater)
             {
