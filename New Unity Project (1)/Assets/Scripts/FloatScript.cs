@@ -43,7 +43,7 @@ public class FloatScript : MonoBehaviour
     {
         float newWaterLine = 0f;
         bool pointUnderWater = false;
-        Debug.Log(pointUnderWater);
+        
 
         for (int i = 0; i < floatPoints.Length; i++)
         {
@@ -78,10 +78,9 @@ public class FloatScript : MonoBehaviour
             }
             rb.AddForce(gravity * Mathf.Clamp(Mathf.Abs(waterLine - center.y), 0, 1));
 
-            targetUp = PhysicsHelper.GetNormal(waterLinePoints);
-
             if (pointUnderWater)
             {
+                Debug.Log(pointUnderWater);
                 Debug.Log("test");
                 targetUp = Vector3.SmoothDamp(transform.up, targetUp, ref smoothVectorRotation, 0.2f);
                 rb.rotation = Quaternion.FromToRotation(transform.up, targetUp) * rb.rotation;
