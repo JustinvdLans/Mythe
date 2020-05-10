@@ -10,6 +10,14 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     Transform player;
 
+    Rigidbody rb;
+
+
+    private void Start()
+    {
+        rb = player.GetComponent<Rigidbody>();
+    }
+
     void Update()
     {
         Cursor.lockState = CursorLockMode.Locked;
