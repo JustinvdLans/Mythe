@@ -10,7 +10,8 @@ public class FloatScript : MonoBehaviour
     private float waterDrag = 10;
     [SerializeField]
     private Transform[] floatPoints;
-    private bool attachToSurface = true;
+    [SerializeField]
+    private bool attachToSurface = false;
     private bool affectDirection = true;
 
     protected Rigidbody rb;
