@@ -46,15 +46,16 @@ public class BoatController : MonoBehaviour
 
         Vector3 forward = Vector3.Scale(new Vector3(1, 0, 1), transform.forward);
         Vector3 targetVel = Vector3.zero;
+        rb.velocity = Vector3.zero;
 
-        if (!anchored)
-        {
-            PhysicsHelper.ApplyForceToReachVelocity(rb, forward * maxSpeed, power);
-        }
+        /*   if (!anchored)
+           {
+               PhysicsHelper.ApplyForceToReachVelocity(rb, forward * maxSpeed, power);
+           } */
 
-        else
-        {
-            rb.velocity = Vector3.zero;
-        }  
+        /*    else
+            {
+                rb.velocity = Vector3.zero;
+            }  */
     }
 }

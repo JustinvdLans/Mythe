@@ -107,4 +107,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        Debug.Log("Aardappelpureesaus");
+    }
 }

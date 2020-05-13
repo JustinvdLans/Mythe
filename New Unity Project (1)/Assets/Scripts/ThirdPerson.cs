@@ -120,6 +120,6 @@ public class ThirdPerson : MonoBehaviour
     // Toggle tekst Lower left corner
     private void OnGUI()
     {
-        GUI.Label(new Rect(10, 250, 1000, 200), "Press F to toggle view");
+        GUI.Label(new Rect(10, 420, 1000, 200), "Press F to toggle view");
     }
 }
