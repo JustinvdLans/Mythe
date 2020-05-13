@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class ThirdPerson : MonoBehaviour
 {
 
+
     [SerializeField]
     float mouseSensitivity;
 
-
+    
     [SerializeField]
     Camera thirdPerson;
 
@@ -38,6 +39,7 @@ public class ThirdPerson : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    //Checkts if it is thirdperson or firstperson camera
     void Update()
     {
         if (thirdPersonActive)
@@ -47,7 +49,7 @@ public class ThirdPerson : MonoBehaviour
         {
             FirstPersonCamera();
         }
-        
+        // Toggled First person en third person
         if (Input.GetKeyDown(KeyCode.F))
         {
             thirdPersonActive = !thirdPersonActive;
@@ -56,7 +58,7 @@ public class ThirdPerson : MonoBehaviour
 
 
 
-
+    //Thirdperson camera settings
     void ThirdPersonCamera()
     {
         thirdPerson.enabled = true;
@@ -79,7 +81,7 @@ public class ThirdPerson : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
-
+    //First person camera settings
     void FirstPersonCamera()
     {
         thirdPerson.enabled = false;
@@ -107,12 +109,15 @@ public class ThirdPerson : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
+    //Better Clamp First person camera
     void ClampXAxisRotationToValue(float value)
     {
         Vector3 eulerRotation = transform.eulerAngles;
         eulerRotation.x = value;
         transform.eulerAngles = eulerRotation;
     }
+
+    // Toggle tekst Lower left corner
     private void OnGUI()
     {
         GUI.Label(new Rect(10, 250, 1000, 200), "Press F to toggle view");

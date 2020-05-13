@@ -25,16 +25,18 @@ public class PlayerMovement : MonoBehaviour
          rb = GetComponent<Rigidbody>();
     }
 
+    
     void FixedUpdate()
     {
-
+        //Walking inputs
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
+        //Walk
         Vector3 dir = new Vector3(moveHorizontal, 0, moveVertical);
         transform.Translate(dir * speed);
 
-
+        //Check to see if player is walking for the animation
         if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
             isWalking = true;
@@ -43,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
             isWalking = false;
         }
        
+        //Walking Animation
         if(isWalking)
         {
             anim.SetBool("isWalking", true);
@@ -51,8 +54,10 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isWalking", false);
         }
 
+        //checks if the player is running
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            //Checks if the player is walking for the run animation so you cant run while you are not moving
             if (isWalking)
             {
                 Debug.Log("I am running");
@@ -64,12 +69,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        else
-        {
-            Debug.Log("I am Not running");
-            isRunning = false;
-        }
-
+        //Run animation and speed checks
         if (isRunning)
         {
             speed = 0.2f;
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
             stamina += 0.5f * Time.deltaTime;
         }
-
+        //Checks If you have stamina or not
         if(stamina >= maxStamina)
         {
             stamina = maxStamina;
