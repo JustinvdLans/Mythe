@@ -4,44 +4,95 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     [SerializeField]
     Rigidbody rb;
 
     [SerializeField]
     float speed = .1f;
-
+    
     float stamina = 5f;
     float maxStamina = 5f;
 
-    bool isWalking = true;
+    bool isRunning = false;
+    bool isWalking = false;
+
+    Animator anim;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
          rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
-        Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        rb.MovePosition(transform.position + dir * speed);
+
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+
+        Vector3 dir = new Vector3(moveHorizontal, 0, moveVertical);
+        transform.Translate(dir * speed);
+
+
+        if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        {
+            isWalking = true;
+        } else
+        {
+            isWalking = false;
+        }
+       
+        if(isWalking)
+        {
+            anim.SetBool("isWalking", true);
+        } else
+        {
+            anim.SetBool("isWalking", false);
+        }
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            Debug.Log("I am running");
-            isWalking = false;
-        } else
+            if (isWalking)
+            {
+                Debug.Log("I am running");
+                isRunning = true;
+                anim.SetBool("isWalking", false);
+            } else
+            {
+                isRunning = false;
+            }
+
+        }
+        else
         {
             Debug.Log("I am Not running");
-            isWalking = true;
+            isRunning = false;
         }
 
-        if (!isWalking)
+        if (isRunning)
         {
             speed = 0.2f;
             stamina -= 1f * Time.deltaTime;
-        } else
+            anim.SetBool("isRunning", true);
+        }
+        else
         {
-            speed = 0.1f;
+            anim.SetBool("isRunning", false);
+
+            if (speed >= 0.2)
+            {
+                speed -= 0.05f * Time.deltaTime;
+                if (speed <= 0.1)
+                {
+                    speed = 0.1f;
+                }
+
+            } else
+            {
+                speed = 0.1f;
+            }
+
             stamina += 0.5f * Time.deltaTime;
         }
 
@@ -50,10 +101,10 @@ public class PlayerMovement : MonoBehaviour
             stamina = maxStamina;
         }
 
-
         if(stamina <= 0)
         {
-            isWalking = true;
+            isRunning = false;
         }
+
     }
 }
