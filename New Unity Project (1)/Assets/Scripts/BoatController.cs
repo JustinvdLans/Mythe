@@ -17,6 +17,7 @@ public class BoatController : MonoBehaviour
     [SerializeField]
     private bool anchored = false;
     private bool steering = false;
+    private float steer = 0;
 
     private Rigidbody rb;
     [SerializeField]
@@ -35,40 +36,40 @@ public class BoatController : MonoBehaviour
     private void Update()
     {
         Vector3 forceDirection = transform.forward;
-        float steer = 0;
 
         if (steering)
         {
             if (Input.GetKey(KeyCode.A))
             {
-                steer = 1;
-                Debug.Log(steer);
-            }
-
-            if (Input.GetKey(KeyCode.D))
-            {
                 steer = -1;
                 Debug.Log(steer);
             }
 
-            rb.AddForceAtPosition(steer * transform.right * steerPower / 100f, motor.position);
+            else if (Input.GetKey(KeyCode.D))
+            {
+                steer = 1;
+                Debug.Log(steer);
+            }
 
+            else
+            {
+                steer = 0;
+            }
+
+            transform.Rotate(new Vector3(0, steer * steerPower, 0));
         }
     }
 
     // Update is called once per frame
     void FixedUpdate()
-    {
-        
-
-        
-
+    {   
         Vector3 forward = Vector3.Scale(new Vector3(1, 0, 1), transform.forward);
         Vector3 targetVel = Vector3.zero;
-     //   rb.velocity = Vector3.zero;
-       
+        //   rb.velocity = Vector3.zero;
 
-          if (!anchored)
+     //   rb.AddForceAtPosition(steer * transform.right * steerPower / 100f, motor.position);
+
+        if (!anchored)
            {
                PhysicsHelper.ApplyForceToReachVelocity(rb, forward * maxSpeed, power);
            } 
