@@ -1,2 +1,5 @@
-# Mythe
-Project Mythe
+# The cursed sea
+---
+Dit is ons project voor het vak AGP. onze game heet The cursed sea en het is een game rondom de mythe van de vliegende hollander. In deze game ben je de kapitein van een schip en is het de bedoeling dat je tegen de vliegende hollander vecht. Kun jij hem voorgoed zinken?
+---
+* [Trello](https://trello.com/b/bm7fRTja/mythe-team-7)
