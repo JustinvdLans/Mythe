@@ -53,7 +53,6 @@ public class FloatScript : MonoBehaviour
             newWaterLine += waterLinePoints[i].y / floatPoints.Length;
             if (waterLinePoints[i].y > floatPoints[i].position.y)
             {
-                Debug.Log("Ghallo");
                 pointUnderWater = true;
             }
             var waterLineDelta = newWaterLine - waterLine;
@@ -82,8 +81,6 @@ public class FloatScript : MonoBehaviour
 
             if (pointUnderWater)
             {
-                Debug.Log(pointUnderWater);
-                Debug.Log("test");
                 targetUp = Vector3.SmoothDamp(transform.up, targetUp, ref smoothVectorRotation, 0.2f);
                 rb.rotation = Quaternion.FromToRotation(transform.up, targetUp) * rb.rotation;
             }
