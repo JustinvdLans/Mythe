@@ -87,9 +87,6 @@ public class BoatController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("using wheel");
-     //   Debug.Log(steering);
-
         if (Input.GetKeyDown(KeyCode.G) && !steering)
         {
             Debug.Log(steering);

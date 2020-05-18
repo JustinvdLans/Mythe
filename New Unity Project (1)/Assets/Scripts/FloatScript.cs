@@ -22,7 +22,9 @@ public class FloatScript : MonoBehaviour
 
     protected Vector3 centerOffset;
     protected Vector3 smoothVectorRotation;
-        protected Vector3 targetUp;
+    protected Vector3 targetUp;
+    [SerializeField]
+    private float speed;
     public Vector3 center { get { return transform.position + centerOffset; } }
     // Start is called before the first frame update
     void Awake()
@@ -82,7 +84,9 @@ public class FloatScript : MonoBehaviour
             if (pointUnderWater)
             {
                 targetUp = Vector3.SmoothDamp(transform.up, targetUp, ref smoothVectorRotation, 0.2f);
-                rb.rotation = Quaternion.FromToRotation(transform.up, targetUp) * rb.rotation;
+                Quaternion targetRot =  Quaternion.FromToRotation(transform.up, targetUp) * rb.rotation;
+          //      rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, speed * Time.deltaTime);
+                rb.rotation = Quaternion.Lerp(rb.rotation, targetRot, Time.deltaTime * speed);
             }
         }
     }
