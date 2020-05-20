@@ -25,6 +25,7 @@ public class FloatScript : MonoBehaviour
     protected Vector3 targetUp;
     [SerializeField]
     private float speed;
+    private Quaternion targetRot;
     public Vector3 center { get { return transform.position + centerOffset; } }
     // Start is called before the first frame update
     void Awake()
@@ -80,13 +81,14 @@ public class FloatScript : MonoBehaviour
             }
             rb.AddForce(gravity * Mathf.Clamp(Mathf.Abs(waterLine - center.y), 0, 1));
             targetUp = PhysicsHelper.GetNormal(waterLinePoints);
+            rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, speed * Time.deltaTime);
 
             if (pointUnderWater)
             {
                 targetUp = Vector3.SmoothDamp(transform.up, targetUp, ref smoothVectorRotation, 0.2f);
-                Quaternion targetRot =  Quaternion.FromToRotation(transform.up, targetUp) * rb.rotation;
-          //      rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, speed * Time.deltaTime);
-                rb.rotation = Quaternion.Lerp(rb.rotation, targetRot, Time.deltaTime * speed);
+                targetRot =  Quaternion.FromToRotation(transform.up, targetUp) * rb.rotation;
+                rb.rotation = Quaternion.RotateTowards(rb.rotation, targetRot, speed * Time.deltaTime);
+              //  rb.rotation = Quaternion.Lerp(rb.rotation, targetRot, Time.deltaTime * speed);
             }
         }
     }

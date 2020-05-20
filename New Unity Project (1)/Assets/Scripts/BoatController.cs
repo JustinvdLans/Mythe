@@ -71,7 +71,8 @@ public class BoatController : MonoBehaviour
 
         if (!anchored)
            {
-               PhysicsHelper.ApplyForceToReachVelocity(rb, forward * maxSpeed, power);
+             //  PhysicsHelper.ApplyForceToReachVelocity(rb, forward * maxSpeed, power);
+               transform.Translate(transform.forward * maxSpeed * Time.deltaTime);
            } 
 
             else
