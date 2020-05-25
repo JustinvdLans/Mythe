@@ -35,8 +35,9 @@ public class BoatController : MonoBehaviour
 
     private void Update()
     {
+        // sets the force direction to forward
         Vector3 forceDirection = transform.forward;
-
+        // checks if the player is behind the wheel and then is able to turn the right way
         if (steering)
         {
             if (Input.GetKey(KeyCode.A))
@@ -50,12 +51,13 @@ public class BoatController : MonoBehaviour
                 steer = 1;
                 Debug.Log(steer);
             }
-
+            // centers out the ship
             else
             {
                 steer = 0;
             }
 
+            // turns the ship
             transform.Rotate(new Vector3(0, steer * steerPower, 0));
         }
     }
@@ -63,12 +65,12 @@ public class BoatController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {   
+        // sets the forward to the front
         Vector3 forward = Vector3.Scale(new Vector3(1, 0, 1), transform.forward);
+        // sets the target velocity to zero
         Vector3 targetVel = Vector3.zero;
-        //   rb.velocity = Vector3.zero;
 
-     //   rb.AddForceAtPosition(steer * transform.right * steerPower / 100f, motor.position);
-
+        // checks if the ship is anchored and sets the speed properly
         if (!anchored)
            {
              //  PhysicsHelper.ApplyForceToReachVelocity(rb, forward * maxSpeed, power);
@@ -81,11 +83,13 @@ public class BoatController : MonoBehaviour
             }  
     }
 
+    // IEnumerator as a time cooldown
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(1f);
     }
 
+    // checks if the player is behind the wheel and disables the movement when he/she is and pressed G
     private void OnTriggerStay(Collider other)
     {
         if (Input.GetKeyDown(KeyCode.G) && !steering)

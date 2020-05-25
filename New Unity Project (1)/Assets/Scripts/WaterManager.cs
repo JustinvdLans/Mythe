@@ -16,6 +16,7 @@ public class WaterManager : MonoBehaviour
 
     private void Update()
     {
+        // gets all vertices and sets them correctly according to the wave height
         Vector3[] vertices = filter.mesh.vertices;
         for (int i = 0; i < vertices.Length; i++)
         {

@@ -16,6 +16,7 @@ public class WaveManager : MonoBehaviour
 
     private void Awake()
     {
+        // instantiates the wavemanager, and destroyes it if there are multiple
         if (instance == null)
         {
             instance = this;
@@ -30,9 +31,11 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
+        // sets the value of the offset
         offset += Time.deltaTime * speed;
     }
 
+    // genarates waves, with sinus waves
     public float GetWaveHeight(float _x)
     {
         return amplitude * Mathf.Sin(_x / length + offset);

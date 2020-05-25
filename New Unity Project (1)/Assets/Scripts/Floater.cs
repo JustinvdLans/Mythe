@@ -19,8 +19,11 @@ public class Floater : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // adds gravity to the object, and instantiates the waveHeight
         rb.AddForceAtPosition(Physics.gravity / floaterCount, transform.position, ForceMode.Acceleration);
         float waveHeight = WaveManager.instance.GetWaveHeight(transform.position.z);
+
+        // rotates the object according to the waves so that it's points are not under waterq1
         if (transform.position.y < waveHeight)
         {
             float displacementMultiplier = Mathf.Clamp01((waveHeight - transform.position.y)/ depthBeforeSubmerged) * displacementAmount;
