@@ -4,40 +4,34 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]
-    float mouseSensitivity;
+
+    float yaw;
+
+    float pitch;
+
+    float mouseSensitivity = 10f;
 
     [SerializeField]
-    Transform player;
+    Transform target;
 
-    Rigidbody rb;
+    float dstFromTarget = 3;
+    Vector2 pitchMinMax = new Vector2(-40, 85);
 
-
-    private void Start()
-    {
-        rb = player.GetComponent<Rigidbody>();
-    }
+    float rotationSmoothTime = 1.2f;
+    Vector3 rotationSmoothVelocity;
+    Vector3 currentRotation;
 
     void Update()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        RotateCamera();
+        yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+        pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+        pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
+
+        currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+        transform.eulerAngles = currentRotation;
+
+        transform.position = target.position - transform.forward * dstFromTarget;
     }
 
-    void RotateCamera()
-    {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
-
-        float rotAmountX = mouseX * mouseSensitivity;
-        float rotAmountY = mouseY * mouseSensitivity;
-
-        Vector3 rotPlayer = player.transform.rotation.eulerAngles;
-
-        rotPlayer.x -= rotAmountY;
-        rotPlayer.y += rotAmountX;
-
-        player.rotation = Quaternion.Euler(rotPlayer);
-
-    }
+   
 }

@@ -16,12 +16,6 @@ public class ThirdPerson : MonoBehaviour
     Camera thirdPerson;
 
 
-    bool thirdPersonActive = false;
-
-
-    [SerializeField]
-    Camera firstPerson;
-
     [SerializeField]
     Transform playerBody;
 
@@ -42,18 +36,7 @@ public class ThirdPerson : MonoBehaviour
     //Checkts if it is thirdperson or firstperson camera
     void Update()
     {
-        if (thirdPersonActive)
-        {
-            ThirdPersonCamera();
-        } else
-        {
-            FirstPersonCamera();
-        }
-        // Toggled First person en third person
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            thirdPersonActive = !thirdPersonActive;
-        }
+        ThirdPersonCamera();
     }
 
 
@@ -62,7 +45,6 @@ public class ThirdPerson : MonoBehaviour
     void ThirdPersonCamera()
     {
         thirdPerson.enabled = true;
-        firstPerson.enabled = false;
 
         float mouseX = Input.GetAxis("Mouse X");
 
@@ -79,35 +61,9 @@ public class ThirdPerson : MonoBehaviour
         }
 
         playerBody.Rotate(Vector3.up * mouseX);
+
     }
 
-    //First person camera settings
-    void FirstPersonCamera()
-    {
-        thirdPerson.enabled = false;
-        firstPerson.enabled = true;
-
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
-
-        xAxisClamp += mouseY;
-
-        if(xAxisClamp > 90.0f)
-        {
-            xAxisClamp = 90.0f;
-            mouseY = 0.0f;
-            ClampXAxisRotationToValue(270.0f);
-        }
-        else if (xAxisClamp < -90.0f)
-        {
-            xAxisClamp = -90.0f;
-            mouseY = 0.0f;
-            ClampXAxisRotationToValue(90.0f);
-        }
-
-        transform.Rotate(Vector3.left * mouseY);
-        playerBody.Rotate(Vector3.up * mouseX);
-    }
 
     //Better Clamp First person camera
     void ClampXAxisRotationToValue(float value)
