@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FloatScript : MonoBehaviour
 {
+
+    // NIET IN GEBRUIK!
+
     [SerializeField]
     private float airDrag = 1;
     [SerializeField]

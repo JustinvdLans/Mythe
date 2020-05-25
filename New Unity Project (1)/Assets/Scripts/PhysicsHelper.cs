@@ -2,6 +2,7 @@
 
 public static class PhysicsHelper
 {
+    // NIET IN GEBRUIK!
 
     public static void ApplyForceToReachVelocity(Rigidbody rigidbody, Vector3 velocity, float force = 1, ForceMode mode = ForceMode.Force)
     {

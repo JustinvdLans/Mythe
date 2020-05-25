@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Waves : MonoBehaviour
 {
+
+    // NIET IN GEBRUIK!
+
     [SerializeField]
     private int dimensions = 10;
     public Octave[] octaves;
