@@ -28,7 +28,7 @@ public class FollowingBehaviour : StateHandeler
             currentState = States.FOLLOWINGSTATE;
             transform.position = Vector3.Lerp(transform.position, target.position, 0.01f);
             direction = (this.transform.position - target.transform.position).normalized;
-            Debug.Log(direction);
+          //  Debug.Log(direction);
         }
 
         else if (distanceToPlayer >= 60)
