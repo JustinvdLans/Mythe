@@ -26,7 +26,7 @@ public class BoatController : MonoBehaviour
 
     [SerializeField]
     private GameObject player;
-    // Start is called before the first frame update
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,8 +38,7 @@ public class BoatController : MonoBehaviour
         // sets the force direction to forward
         Vector3 forceDirection = transform.forward;
         // checks if the player is behind the wheel and then is able to turn the right way
-        if (steering)
-        {
+
             if (Input.GetKey(KeyCode.A))
             {
                 steer = -1;
@@ -59,7 +58,8 @@ public class BoatController : MonoBehaviour
 
             // turns the ship
             transform.Rotate(new Vector3(0, steer * steerPower, 0));
-        }
+
+      //  transform.Translate(transform.forward * maxSpeed * Time.deltaTime);
     }
 
     // Update is called once per frame
@@ -84,13 +84,13 @@ public class BoatController : MonoBehaviour
     }
 
     // IEnumerator as a time cooldown
-    IEnumerator Wait()
+ /*   IEnumerator Wait()
     {
         yield return new WaitForSeconds(1f);
-    }
+    }   */
 
     // checks if the player is behind the wheel and disables the movement when he/she is and pressed G
-    private void OnTriggerStay(Collider other)
+/*    private void OnTriggerStay(Collider other)
     {
         if (Input.GetKeyDown(KeyCode.G) && !steering)
         {
@@ -111,5 +111,5 @@ public class BoatController : MonoBehaviour
             steering = false;
             Debug.Log("6");
         } 
-    }
+    }   */
 }
