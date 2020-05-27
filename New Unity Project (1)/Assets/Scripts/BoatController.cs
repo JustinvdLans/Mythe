@@ -96,7 +96,6 @@ public class BoatController : MonoBehaviour
         {
             Debug.Log(steering);
             Debug.Log("1");
-            player.GetComponent<PlayerMovement>().enabled = false;
             playerRb.constraints = RigidbodyConstraints.FreezeAll;
             StartCoroutine(Wait());
             Debug.Log("2");
@@ -107,7 +106,6 @@ public class BoatController : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.G) && steering)
         {
             Debug.Log("4");
-            player.GetComponent<PlayerMovement>().enabled = true;
             Debug.Log("5");
             StartCoroutine(Wait());
             steering = false;
