@@ -59,22 +59,26 @@ public class BoatController : MonoBehaviour
             // turns the ship
             transform.Rotate(new Vector3(0, steer * steerPower, 0));
 
-      //  transform.Translate(transform.forward * maxSpeed * Time.deltaTime);
+    //    transform.Translate(transform.forward * maxSpeed * Time.deltaTime);
+        transform.position += transform.forward * maxSpeed * Time.deltaTime;
     }
 
     // Update is called once per frame
     void FixedUpdate()
-    {   
+    {
+    //    rb.AddTorque(transform.up * steer * steerPower);
         // sets the forward to the front
-        Vector3 forward = Vector3.Scale(new Vector3(1, 0, 1), transform.forward);
+      //  Vector3 forward = Vector3.Scale(new Vector3(1, 0, 1), transform.forward);
         // sets the target velocity to zero
-        Vector3 targetVel = Vector3.zero;
-
+    //    Vector3 targetVel = Vector3.zero;
         // checks if the ship is anchored and sets the speed properly
         if (!anchored)
            {
-             //  PhysicsHelper.ApplyForceToReachVelocity(rb, forward * maxSpeed, power);
-               transform.Translate(transform.forward * maxSpeed * Time.deltaTime);
+           /* Vector3 forward = transform.forward * maxSpeed;
+            forward.y = rb.velocity.y;
+            rb.velocity = forward;  */
+           
+               
            } 
 
             else
