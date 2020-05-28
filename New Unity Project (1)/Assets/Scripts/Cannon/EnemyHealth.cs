@@ -19,6 +19,11 @@ public class EnemyHealth : MonoBehaviour
     private AudioSource explosion;
     [SerializeField]
     private Animator anim;
+    [SerializeField]
+    private AudioSource combatMusic;
+    [SerializeField]
+    private AudioSource mainMusic;
+    private bool functionActivated = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -28,15 +33,32 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = health;
     }
 
+    private void Update()
+    {
+        if (!functionActivated)
+        {
+            if (currentHealth < health && currentHealth > 0)
+            {
+                Debug.Log("Check");
+                combatMusic.Play();
+                functionActivated = true;
+            }
+        }
+    }
+
     public void WhenDamage(float damage)
     {
+        mainMusic.Pause();
         explosion.Play();
         currentHealth -= damage;
         enemyBar.fillAmount = currentHealth / health;
         if (currentHealth <= 0)
         {
-            anim.SetBool("isSinking", false);
-            Destroy(gameObject, 1);
+            combatMusic.Stop();
+            mainMusic.UnPause();
+            anim.SetBool("isSinking", true);
+            Destroy(gameObject, 1.6f);
+
         }
     }
 }
