@@ -19,7 +19,7 @@ public class AttackBehaviour : StateHandeler
     void Update()
     {
         HitCheck();
-        Debug.Log(hitPercentage);
+      //  Debug.Log(hitPercentage);
     }
 
     private void AttackCheck()
