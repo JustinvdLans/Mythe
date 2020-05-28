@@ -11,17 +11,24 @@ public class ThirdPerson : MonoBehaviour
     [SerializeField]
     float mouseSensitivity;
 
-    
-    [SerializeField]
-    Camera thirdPerson;
+    [SerializeField] GameObject player;
+    PlayerMovement playerMovement;
 
+    [SerializeField] 
+    Camera thirdPerson;
 
     [SerializeField]
     Transform playerBody;
 
     float xAxisClamp;
 
+    [SerializeField] Camera rightCannon;
+    [SerializeField] Camera leftCannon;
 
+    private void Start()
+    {
+        playerMovement = player.GetComponent<PlayerMovement>();
+    }
     private void Awake()
     {
         LockCursor();
@@ -36,7 +43,15 @@ public class ThirdPerson : MonoBehaviour
     //Checkts if it is thirdperson or firstperson camera
     void Update()
     {
-        ThirdPersonCamera();
+        if(playerMovement.canMove)
+        {
+            ThirdPersonCamera();
+        } else
+        {
+            Debug.Log("Camera Can Move");
+        }
+
+        
     }
 
 
@@ -63,7 +78,6 @@ public class ThirdPerson : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
 
     }
-
 
     //Better Clamp First person camera
     void ClampXAxisRotationToValue(float value)

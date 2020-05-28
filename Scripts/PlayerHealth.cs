@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealth();
     }
 
-
+    //Updates The healthbar and the percentage
     private void UpdateHealth()
     {
         float ratio = health / maxHealth;
@@ -36,17 +36,19 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
+    //Makes you take damage
     private void TakeDamage(float damage)
     {
-
+        //damage
         health -= damage;
 
+        //Check if player is dead, doesnt do anything yet
         if (health <= 0)
         {
             health = 0;
             Debug.Log("Dead Whale");
         }
-
+        //Changes healthbar color by certain amount of health
         if (health <= 50)
         {
             CurrentHealth.color = mediumHealthColor;
@@ -56,17 +58,19 @@ public class PlayerHealth : MonoBehaviour
                 CurrentHealth.color = lowHealthColor;
             }
         }
-
+        //Updates the healthbar after damage is taken
         UpdateHealth();
     }
 
     private void Update()
     {
+        //Just a quick way to test the healthbar
         if (Input.GetKey("h"))
         {
             TakeDamage(0.1f);
         }
 
+        //Fixes you cant get more than max health
         if (health >= maxHealth)
         {
             health = maxHealth;

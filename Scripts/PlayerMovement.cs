@@ -17,16 +17,28 @@ public class PlayerMovement : MonoBehaviour
     bool isRunning = false;
     bool isWalking = false;
 
+    public bool canMove;
     Animator anim;
 
     void Start()
     {
         anim = GetComponent<Animator>();
          rb = GetComponent<Rigidbody>();
+        canMove = true;
     }
 
-    
     void FixedUpdate()
+    {
+        if(canMove)
+        {
+            Movement();
+        } else
+        {
+            Debug.Log("I cant Move");
+        }
+    }
+
+    void Movement()
     {
         //Walking inputs
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -37,19 +49,21 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(dir * speed);
 
         //Check to see if player is walking for the animation
-        if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
             isWalking = true;
-        } else
+        }
+        else
         {
             isWalking = false;
         }
-       
+
         //Walking Animation
-        if(isWalking)
+        if (isWalking)
         {
             anim.SetBool("isWalking", true);
-        } else
+        }
+        else
         {
             anim.SetBool("isWalking", false);
         }
@@ -63,7 +77,8 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("I am running");
                 isRunning = true;
                 anim.SetBool("isWalking", false);
-            } else
+            }
+            else
             {
                 isRunning = false;
             }
@@ -88,7 +103,8 @@ public class PlayerMovement : MonoBehaviour
                     speed = 0.1f;
                 }
 
-            } else
+            }
+            else
             {
                 speed = 0.1f;
             }
@@ -96,12 +112,12 @@ public class PlayerMovement : MonoBehaviour
             stamina += 0.5f * Time.deltaTime;
         }
         //Checks If you have stamina or not
-        if(stamina >= maxStamina)
+        if (stamina >= maxStamina)
         {
             stamina = maxStamina;
         }
 
-        if(stamina <= 0)
+        if (stamina <= 0)
         {
             isRunning = false;
         }
