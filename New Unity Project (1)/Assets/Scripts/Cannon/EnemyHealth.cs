@@ -15,6 +15,10 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private GameObject enemyUI;
     //public GameObject EnemyUI { get { return enemyUI; } set { enemyUI = value; } }
+    [SerializeField]
+    private AudioSource explosion;
+    [SerializeField]
+    private Animator anim;
 
     // Start is called before the first frame update
     private void Start()
@@ -26,11 +30,13 @@ public class EnemyHealth : MonoBehaviour
 
     public void WhenDamage(float damage)
     {
+        explosion.Play();
         currentHealth -= damage;
         enemyBar.fillAmount = currentHealth / health;
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            anim.SetBool("isSinking", false);
+            Destroy(gameObject, 1);
         }
     }
 }

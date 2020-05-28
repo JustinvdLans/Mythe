@@ -10,6 +10,8 @@ public class CannonShoot : MonoBehaviour
     [SerializeField] private GameObject effect; //Shoot particle
     private float timer;
     private float maxTimer = 1.5f;
+    [SerializeField]
+    private AudioSource cannonFire;
 
     void Update()
     {
@@ -24,6 +26,7 @@ public class CannonShoot : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
+                cannonFire.Play();
                 ballRigid = Instantiate(Ball, ballPos.position, ballPos.rotation) as Rigidbody;
                 ballRigid.AddForce(ballPos.forward * forceAmount);
                 Instantiate(effect, ballPos.position, ballPos.rotation);
