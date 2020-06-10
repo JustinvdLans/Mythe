@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Diagnostics.Tracing;
 
 public class UIController : MonoBehaviour
 {
@@ -16,11 +17,13 @@ public class UIController : MonoBehaviour
 
     public void SettingsMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Settings");
     }
 
     public void StartGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Movement");
     }
 
@@ -32,6 +35,7 @@ public class UIController : MonoBehaviour
 
     public void QuitToMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -59,17 +63,25 @@ public class UIController : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gamePaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void PauseGame()
     {
+        Cursor.lockState = CursorLockMode.None;
         player.GetComponentInChildren<ThirdPerson>().enabled = false;
         player.GetComponentInChildren<CameraController>().enabled = false;
         cannonsRight.SetActive(false);
         cannonsLeft.SetActive(false);
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0.1f;
+        Time.timeScale = 0f;
         gamePaused = true;
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        Application.LoadLevel(Application.loadedLevel);
     }
 
 }
