@@ -9,7 +9,7 @@ team 7
 Dit is ons project voor het vak AGP. onze game heet The cursed sea en het is een game rondom de mythe van de vliegende hollander. In deze game ben je de kapitein van een schip en is het de bedoeling dat je tegen de vliegende hollander vecht. Kun jij hem voorgoed zinken?
 ---
 * [Trello](https://trello.com/b/bm7fRTja/mythe-team-7)
-* [Gameplay](https://www.youtube.com/watch?v=6yvcBH0y7oc)
+* [Gameplay](https://youtu.be/hl_Lcv_Wd8Q)
 ---
 Hier vind u de links naar ieders documentatie, en ook naar hun branch, zodat u kunt zien wie wat gedaan heeft.
 
