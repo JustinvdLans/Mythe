@@ -11,6 +11,7 @@ Dit is ons project voor het vak AGP. onze game heet The cursed sea en het is een
 * [Trello](https://trello.com/b/bm7fRTja/mythe-team-7)
 * [Gameplay](https://youtu.be/hl_Lcv_Wd8Q)
 * [User test](https://youtu.be/JWIwdiHw6Co)
+* [Link naar game(google drive)](https://drive.google.com/drive/folders/1LJMf941Ou5wRfjw1wlq6ned0SeCi0jlE)
 ---
 Hier vind u de links naar ieders documentatie, en ook naar hun branch, zodat u kunt zien wie wat gedaan heeft.
 
