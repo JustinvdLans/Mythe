@@ -5,7 +5,7 @@
 * Ian Hartog
 * Rens Fortuin
 * Marit Kuyper
-* Viktor Westdijk
+* Victor Westdijk
 
 Platform: PC
 
@@ -20,7 +20,7 @@ Producten Werkproces 1
 * Documentatie Ian [Documentatie](https://github.com/JustinvdLans/Mythe/tree/Ian's-Branch/Documentatie)
 * Documentatie Marit 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Marit's-branch)
 * Documentatie Rens 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Ren's-branch/Documentatie (Bv. logboek))
-* Documentatie Viktor 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Victor's-branch/documentatie)
+* Documentatie Victor 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Victor's-branch/documentatie)
 * Game concept doc (pdf) 	GameDesignDoc
 	
 Producten Werkproces 2
@@ -30,7 +30,7 @@ Producten Werkproces 2
 * Documentatie Ian [Documentatie](https://github.com/JustinvdLans/Mythe/tree/Ian's-Branch/Documentatie)
 * Documentatie Marit 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Marit's-branch)
 * Documentatie Rens 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Ren's-branch/Documentatie (Bv. logboek))
-* Documentatie Viktor 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Victor's-branch/documentatie)
+* Documentatie Victor 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Victor's-branch/documentatie)
 * Opnames sprint retrospectives (Teams opnames) 	Folder op teams
 * Opnames standups (Teams opnames) 	Folder op teams
 	
@@ -42,5 +42,5 @@ Producten Werkproces 3
 * Documentatie Ian [Documentatie](https://github.com/JustinvdLans/Mythe/tree/Ian's-Branch/Documentatie)
 * Documentatie Marit 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Marit's-branch)
 * Documentatie Rens 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Ren's-branch/Documentatie (Bv. logboek))
-* Documentatie Viktor 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Victor's-branch/documentatie)
+* Documentatie Victor 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Victor's-branch/documentatie)
 * Asset planning (pdf) 	[AssetPlanning](https://trello.com/b/bm7fRTja/mythe-team-7)
