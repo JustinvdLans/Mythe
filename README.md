@@ -24,7 +24,7 @@ Product 	Link
 * Game concept doc (pdf) 	GameDesignDoc
 	
 Producten Werkproces 2
-* Product 	Link
+Product 	Link
 * Online Product backlog & Sprint backlog + DoD 	[Backlog](https://trello.com/b/bm7fRTja/mythe-team-7)
 * Documentatie Justin [Documentatie](https://github.com/JustinvdLans/Mythe/tree/JustinvdLans-Branch/Documentatie)
 * Documentatie Ian [Documentatie](https://github.com/JustinvdLans/Mythe/tree/Ian's-Branch/Documentatie)
