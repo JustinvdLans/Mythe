@@ -31,8 +31,7 @@ Producten Werkproces 2
 * Documentatie Marit 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Marit's-branch)
 * Documentatie Rens 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Ren's-branch/Documentatie (Bv. logboek))
 * Documentatie Victor 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Victor's-branch/documentatie)
-* Opnames sprint retrospectives (Teams opnames) 	Folder op teams
-* Opnames standups (Teams opnames) 	Folder op teams
+* Opnames standups (Teams opnames) 	[Folder op teams](https://teams.microsoft.com/_#/school/files/Team%2007?threadId=19%3A689bda904e084f399af86182762baf10%40thread.tacv2&ctx=channel&context=Recordings%2520daily%2520stand-up&rootfolder=%252Fteams%252FMytheGDGA1920-Team07%252FGedeelde%2520documenten%252FTeam%252007%252FRecordings%2520daily%2520stand-up)
 	
 Producten Werkproces 3
 
