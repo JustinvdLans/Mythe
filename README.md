@@ -14,7 +14,7 @@ Dit is ons project voor het vak AGP. onze game heet The cursed sea en het is een
 
 ...
 Producten Werkproces 1
-Product 	Link
+
 * Link naar online product backlog  	[Backlog](https://trello.com/b/bm7fRTja/mythe-team-7)
 * Documentatie Justin [Documentatie](https://github.com/JustinvdLans/Mythe/tree/JustinvdLans-Branch/Documentatie)
 * Documentatie Ian [Documentatie](https://github.com/JustinvdLans/Mythe/tree/Ian's-Branch/Documentatie)
@@ -24,7 +24,7 @@ Product 	Link
 * Game concept doc (pdf) 	GameDesignDoc
 	
 Producten Werkproces 2
-Product 	Link
+
 * Online Product backlog & Sprint backlog + DoD 	[Backlog](https://trello.com/b/bm7fRTja/mythe-team-7)
 * Documentatie Justin [Documentatie](https://github.com/JustinvdLans/Mythe/tree/JustinvdLans-Branch/Documentatie)
 * Documentatie Ian [Documentatie](https://github.com/JustinvdLans/Mythe/tree/Ian's-Branch/Documentatie)
@@ -35,7 +35,7 @@ Product 	Link
 * Opnames standups (Teams opnames) 	Folder op teams
 	
 Producten Werkproces 3
-Product 	Link
+
 * Sprint review verslagen (pdf) 	[ReviewVerslagen](https://github.com/JustinvdLans/Mythe/tree/master/Algemene%20documentatie)
 * Link naar online speelbaar prototype 	[Prototype](https://drive.google.com/drive/folders/1LJMf941Ou5wRfjw1wlq6ned0SeCi0jlE)
 * Documentatie Justin [Documentatie](https://github.com/JustinvdLans/Mythe/tree/JustinvdLans-Branch/Documentatie)
