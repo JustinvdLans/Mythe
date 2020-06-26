@@ -42,4 +42,4 @@ Producten Werkproces 3
 * Documentatie Marit 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Marit's-branch)
 * Documentatie Rens 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Ren's-branch/Documentatie (Bv. logboek))
 * Documentatie Victor 	[Documentatie](https://github.com/JustinvdLans/Mythe/tree/Victor's-branch/documentatie)
-* Asset planning (pdf) 	[AssetPlanning](https://trello.com/b/bm7fRTja/mythe-team-7)
+* Asset planning (pdf) 	[AssetPlanning](https://github.com/JustinvdLans/Mythe/tree/master/Algemene%20documentatie)
